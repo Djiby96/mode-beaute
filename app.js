@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname , "js")))
 app.use(express.static(__dirname)) 
 
 // Init app port
-var port = 55555;
+var port = process.env.PORT || 56374;
 app.listen(port)
 
 // Export backend-modules for app
