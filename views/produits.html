@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/logo/l1.jpg" type="image/jpg">
+    <title>Vos produits</title>
+
+    <!-- boostrap css -->
+    <link rel="stylesheet" href="/bootstrap-css-4.5.0/bootstrap.min.css">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="/fontawesome_5.15.4/css/all.css">
+
+    <!-- my-templates-css -->
+    <link rel="stylesheet" href="/my-templates-css/globalCss.css">
+
+    <!-- my-css -->
+    <link rel="stylesheet" href="/my-css/produits.css">
+
+    <!-- media-querie -->
+    <link rel="stylesheet" href="/media-querie/mq_produits.css">
+
+    <!-- my-js -->
+    <script defer src="/my-js/produits.js"></script>
+
+    <script defer src="/my-js/listenFlashMessage.js"></script>
+</head>
+<body class="bg-light">
+
+    <!-- Nav admin -->
+    <header>
+        <%- include("./navbar_admin.html") %>
+    </header>
+
+    <!-- section title -->
+    <section class="my-5">
+        <h4 class="bg-primary text-white text-center bx-s-10 br-06 py-3 pl-2 width-30 ml-lg-3 ml-1 m-w-90 px-2" id="title_page">
+            Produits en ligne sur le site
+        </h4>
+    </section>
+
+    <section class="center mt-5 mb-10">
+        <div>
+            <!-- <form action="" method="get" class="mb-5 start border rounded">
+                <input type="search" name="numero" class="width-30 py-1 height-2 height-input rounded-left border-0 form-control fs-08 bx-s-10 m-w-85" placeholder="Chercher un produit par son numero">
+                <button type="submit" class="px-3 rounded-right bg-primary height-input bx-s-10 border-0">
+                    <i class="fas fa-search text-white"></i>
+                </button>
+            </form> -->
+
+            <!-- message alert -->
+            <div class="center">
+                <div class="mb-3 alert fs-09 px-3 d-none" message="<%-locals.message%>" id="message_alert">
+                </div>
+            </div>
+
+            <%if(products.length >= 1){%>
+                <div class="center mb-3">
+                    <%products.forEach((product) =>{%>
+                        <article class="article_product bx-s-2 br-06 border t-d-n m-2 m-lg-3 hover-bx-s-10 bg-white">
+                            <img src="<%=product.chemin%>" class="img_product w-100 rounded" alt="<%=product.titre%>">
+                            <div class="title_product text-muted online-text cl-black text-center fs-08 mt-2 mb-2 px-3 op-08">
+                                <%=product.titre%>
+                            </div>
+                            <h5 class="price_product f-w-b fs-09 text-shadow-1 text-center cl-purple mb-3">
+                                <%if(product.prix>0){%>
+                                    <%=product.prix_format%> F CFA
+                                <%}else{%>
+                                    prix sur demande
+                                <%}%>
+                            </h5>
+                            <div class="center container_remove_icon v-hidden">
+                                <div class="remove_icon cs-p bx-s-10 px-3 rounded" title-conf="Suppression" text="Voulez-vous vraiment effectuez cette operation ?" link="/espace-admin/produits/disable-produit-<%=product.numero%>">
+                                    <i class="text-danger fas fa-trash-alt bx-s-10" style="font-size: 1rem;">
+                                    </i>
+                                </div>
+                            </div>
+                        </article>
+                    <%})%>
+                </div>
+                <div>
+                    <%- include("./pagination.html")%>
+                </div>
+            <%}else{%>
+                <div class="mx-3 text-center text-muted f-w-b" style="font-size: 1.7rem;">
+                    CETTE PAGE EST VIDE 
+                </div>
+            <%}%>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+        <%- include("./footer.html") %>
+    </footer>
+
+
+
+
+    <!-- page confirmation -->
+    <section class="page_conf screen_position">
+        <%- include("./confirmation.html")%>
+    </section>
+</body>
+</html>

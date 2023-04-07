@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <!-- my-css -->
+    <link rel="stylesheet" href="/my-css/navigation.css">
+
+    <!-- media querie -->
+    <link rel="stylesheet" href="/media-querie/mq_navigation.css">
+
+    <!-- boostrap js -->
+    <script defer src="/boostrap-js-4.5.0/jquery-3.4.1.min.js"></script>
+    <script defer src="/boostrap-js-4.5.0/bootstrap.min.js"></script>
+
+    <!-- my-js -->
+    <script defer src="/my-js/Cookie.js"></script>
+    <script defer src="/my-js/navigation.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-black py-4">
+        <a class="navbar-brand cl-white" href="/">
+            <img src="/logo/l1.jpg" class="width-3 height-3 bx-s-10 rounded" alt="">
+            <span class="f-w-b fs-12">Mode & Beaute</span>
+        </a>
+
+        <button class="navbar-toggler bg-white bx-s-10" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mx-auto">
+            <li class="nav-item dropdown mx-2">
+                <span class="nav-link dropdown-toggle fs-085 cl-white f-w-b t-d-u" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    homme
+                </span>
+                <div class="dropdown-menu fs-075" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item cl-black" href="/homme/vetements">
+                        <i class="fas fa-tshirt"></i>
+                        vêtements
+                    </a>
+                    <a class="dropdown-item cl-black" href="/homme/chaussures">
+                        <i class="fas fa-shoe-prints"></i>
+                        chaussures
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown mx-2">
+                <span class="nav-link dropdown-toggle t-d-u fs-085 cl-white f-w-b" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    femme
+                </span>
+                <div class="dropdown-menu fs-075 text-muted" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item cl-black" href="/femme/vetements">
+                        <i class="fas fa-tshirt"></i>
+                        vêtements
+                    </a>
+                    <a class="dropdown-item cl-black" href="/femme/chaussures">
+                        <i class="fas fa-shoe-prints"></i>
+                        chaussures
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item mx-2">
+                <a class="nav-link fs-085 cl-white hover-cl-blue f-w-b t-d-u" href="/enfant-bebe">
+                    enfant & bebe
+                </a>
+              </li>
+            <li class="nav-item mx-2">
+                <a class="nav-link fs-085 cl-white hover-cl-blue f-w-b t-d-u" href="/accessoires">
+                    accessoires
+                </a>
+            </li>
+            </ul>
+
+            <div class="center" id="number_link">
+                <a href="tel:+221777781562">
+                    <button class="bg-primary br-05 bx-s-10 out-n fs-08 f-w-b border-0 text-white mr-2 py-2 px-4">
+                        <i class="fas fa-phone"></i>
+                        33 842 34 34 / 77 647 27 27
+                    </button>
+                </a>
+
+                <a href="/espace-admin/ajouter-produit" class="d-none" id="link_admin">
+                    <i class="fas fa-user-circle cl-white text-shadow-1 mr-3 mt-1 fs-2" title="se connecter"></i>
+                </a> 
+            </div>
+        </div>
+    </nav>
+</body>
+</html>

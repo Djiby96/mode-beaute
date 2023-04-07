@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vente de vêtements, chaussures et accessoires pour enfants et bebe a Dakar, Sénégal">
+    <link rel="icon" href="/logo/l1.jpg" type="image/jpg">
+    <title>Vêtements, chaussures et accessoires pour enfants et bebe Dakar, Sénégal</title>
+
+    <!-- URL QUERY STRING -->
+    <script defer src="/my-js/URLQueryString.js"></script>
+
+    <!-- my-js -->
+    <script defer src="/my-js/enfant_bebe.js"></script>
+
+    <!-- boostrap css -->
+    <link rel="stylesheet" href="/bootstrap-css-4.5.0/bootstrap.min.css">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="/fontawesome_5.15.4/css/all.css">
+
+    <!-- my-templates-css -->
+    <link rel="stylesheet" href="/my-templates-css/globalCss.css">
+
+    <!-- my-css -->
+    <link rel="stylesheet" href="/my-css/enfant_bebe.css">
+
+    <!-- media-querie -->
+    <link rel="stylesheet" href="/media-querie/mq_enfant_bebe.css">
+</head>
+<body>
+    
+    <!-- navbar -->
+    <header>
+        <%- include("./navigation.html") %>
+    </header>
+
+    <!-- title page -->
+    <section class="my-5">
+        <div class="f-w-b fs-12 ml-3 bx-s-10 text-white clip-point-2 text-center rounded py-2 px-5 width-mc bg-secondary" id="title_page">
+            Enfant & Bebe
+        </div>
+    </section>
+
+    <!-- search options and product -->
+    <section class="mb-5">
+        <div class="d-flex justify-content-end mb-2">
+            <div class="wrap justify-content-end mx-2 mr-lg-5">
+                <select name="categorie" id="sc" class="mr-2 width-8 text-center f-w-b br-06 fs-075 cs-p text-muted mb-2" style="height: 1.5rem; border: 2.5px solid black;">
+                    <option value="" class="text-center">categorie</option>
+                    <option value="vetements" class="text-center">vêtements</option>
+                    <option value="chaussures" class="text-center">chaussures</option>
+                    <option value="accessoires" class="text-center">accessoires</option>
+                </select>
+                <select name="sexe" id="ss" class="mr-2 width-8 text-center f-w-b br-06 fs-075 cs-p text-muted mb-2" style="height: 1.5rem; border: 2.5px solid black;">
+                    <option value="" class="text-center">sexe</option>
+                    <option value="garcon" class="text-center">garçon</option>
+                    <option value="fille" class="text-center">fille</option>
+                </select>
+                <select name="prix" id="sp" class="br-06 width-8 fs-075 f-w-b cs-p text-muted" style="height: 1.5rem; border: 2.5px solid black;">
+                    <option value="" class="text-center">prix</option>
+                    <option value="asc" class="text-center">du - chér au + chér</option>
+                    <option value="desc" class="text-center">du + chér au - chér</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- products and pagination -->
+        <div class="column-center">
+            <%if(products.length>=1){%>
+                <div class="center mb-4">
+                    <%products.forEach((product) =>{%>
+                        <a href="/<%=product.genre%>/<%=product.categorie%>/<%=product.titre_concat%>-<%=product.numero%>" class="link_product width-14 height-18 bx-s-2 hover-bx-s-10 m-2 m-lg-3 br-06 m-w-95 t-d-n">
+                            <img src="<%=product.chemin%>" alt="<%=product.titre%>" class="imgs_product w-100 height-11 mb-2 br-06">
+                            <div class="product_title f-w-b text-muted fs-07 ellipsis-2 mb-3 px-2">
+                                <%=product.titre%>
+                            </div>
+                            <h5 class="center">
+                                <%if(product.prix>0){%>
+                                    <span class="py-2 px-4 rounded bx-s-6 text-white fs-075 bg-secondary"><%=product.prix_format%> F CFA</span>
+                                <%}%>
+                            </h5>
+                        </a>
+                    <%})%>
+                </div>
+            <%}else{%>
+                <div class="center text-muted f-w-b fs-1 mt-5">
+                    AUCUN PRODUIT TROUVEE
+                </div>
+            <%}%>
+
+            <div>
+                <%- include("./pagination.html") %>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- services -->
+    <section>
+        <%- include("./service.html") %>
+    </section>
+
+    <!-- footer -->
+    <footer>
+        <%- include("./footer.html") %>
+    </footer>
+</body>
+</html>

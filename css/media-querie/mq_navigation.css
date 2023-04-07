@@ -1,0 +1,16 @@
+@media screen and (min-width: 0) and (max-width:400px){
+   #number_link{
+    margin-top: 2rem !important;
+   }
+}
+@media screen and (min-width:401px) and (max-width:700px){
+    #number_link{
+        margin-top: 2rem !important;
+    }
+}
+@media screen and (min-width:701px) and (max-width:1000px){
+}
+
+@media screen and (min-width:1001px){
+   
+}

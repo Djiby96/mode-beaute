@@ -1,0 +1,13 @@
+.screen_position{
+    display: flex; justify-content: center; align-items: center; position: fixed !important; top: 0 !important; left: 0 !important;
+    right: 0 !important; bottom: 0 !important; width: 100% !important; height: 100% !important; background-color: rgba(0, 0, 0, 0.7);
+    visibility: hidden; z-index: 5 !important;
+}
+.show_screen_position{
+    visibility: visible !important;
+}
+
+/* top-bottom-left-right */
+.tblr{
+    top: 0 !important; bottom: 0 !important; left: 0 !important; right: 0 !important;
+}

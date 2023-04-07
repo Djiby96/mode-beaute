@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<%=product.description%>">
+    <link rel="icon" href="/logo/l1.jpg" type="image/jpg">
+    <title><%=product.titre%></title>
+
+    <!-- my-js -->
+    <script defer src="/my-js/details_produit.js"></script>
+
+    <!-- boostrap css -->
+    <link rel="stylesheet" href="/bootstrap-css-4.5.0/bootstrap.min.css">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="/fontawesome_5.15.4/css/all.css">
+
+    <!-- my-templates-css -->
+    <link rel="stylesheet" href="/my-templates-css/globalCss.css">
+
+    <!-- my-css -->
+    <link rel="stylesheet" href="/my-css/details_produit.css">
+
+    <!-- media-querie -->
+    <link rel="stylesheet" href="/media-querie/mq_details_produit.css">
+
+    <!-- 1. Whatsapp -->
+    <meta property="og:image" itemprop="image" content="domain.com<%=product.chemin%>">
+    <meta property="og:image:width" content="1000">
+    <meta property="og:image:height" content="500">
+    <%if(product.prix>0){%>
+        <meta property="og:title" content="<%=product.prix_format%> F CFA">
+    <%}else{%>
+        <meta property="og:title" content="prix sur demande">
+    <%}%>
+    <meta property="og:url" content="domain.com/<%=genre%>/<%=categorie%>/<%=titre_numero%>">
+    <meta property="og:description" content="<%=product.titre%>">
+
+    <!-- 2. Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <%if(product.prix>0){%>
+        <meta name="twitter:title" content="<%=product.prix_format%> F CFA">
+    <%}else{%>    
+        <meta name="twitter:title" content="Prix sur demande">
+    <%}%>
+
+    <meta name="twitter:description" content="<%=product.titre%>">
+    <meta name="twitter:image" itemprop="image" content="domain.com<%=product.chemin%>">
+    <meta property="twitter:image:width" content="1000">
+    <meta property="twitter:image:height" content="500">
+    <meta name="twitter:url" content="domain.com/<%=genre%>/<%=categorie%>/<%=titre_numero%>">
+</head>
+<body>
+
+    <!-- navbar -->
+    <header class="mb-6">
+        <%- include("./navigation.html") %>
+    </header>
+
+    <!-- product details -->
+    <section class="mb-8">
+        <div class="center px-2">
+            <div class="center mb-4 mr-lg-5" id="container_imgs">
+                <div class="column mr-3 mt-3" id="container_small_imgs">
+                    <%for(let i = 1; i<=product.nombre_images; i++){%>
+                        <img src="<%=product.chemin.substring(0, product.chemin.lastIndexOf('_') + 1) + i + '.jpg'%>" class="small_imgs width-4 height-4 cs-p rounded m-2 bx-s-2 border op-06 hover-op-1" alt="<%=product.titre%>" title="<%=product.titre%>">
+                    <%}%>
+                </div>
+                <div id="img_bg" class="center position-relative width-36 height-32 m-w-90 bx-s-10" style="background-image: url('<%=product.chemin%>'); background-size: 100% 100%; background-repeat: repeat;">
+                    <div class="position-absolute z-i-1 w-100 h-100 bg-black-rgba-07" id="tr_cl"></div>
+                    <img src="<%=product.chemin%>" class="z-i-2 bg-white bx-s-10 w-100 h-100 bx-s-10" id="img_dt" alt="" title="">
+                </div>
+            </div>
+            <div class="width-30 m-w-100">
+                <div class="mb-4 fs-14 text-shadow-1 text-muted op-08 f-w-b text-center ellipsis-2 px-2"><%=product.titre%></div>
+                <h4 class="cl-orangered f-w-b ml-3 text-shadow-1 mb-4">
+                    <%if(product.prix >0){%>
+                        <%=product.prix_format%> F CFA
+                    <%}else{%>
+                        Prix sur demande
+                    <%}%>
+                </h4>
+                <p class="fs-085 ls-015 text-muted m-w-95 mb-5 px-2" id="product_description">
+                    <%=product.description%>
+                </p>
+                <div class="column-center">
+                    <div class="mb-4 bx-s-6 br-06 py-3 px-4 text-white bg-secondary f-w-b fs-1">
+                        <i class="fas fa-user"></i>
+                        Contactez-nous & Achetez via
+                        <i class="fas fa-hand-point-down"></i>
+                    </div>
+                    <div>
+                        <a href="https://wa.me/+221777781562?text=domain.com/<%=genre%>/<%=categorie%>/<%=titre_numero%> %0a%0a Salut ! je suis intéressé(e) par votre vente ?" class="link_number m-1 m-lg-2">
+                            <button class="br-06 bg-greened py-2 bx-s-10 text-white width-6 fs-07 out-n border-0">
+                                <i class="fab fa-whatsapp"></i>
+                                Whatsapp
+                            </button>
+                        </a>
+                        <a href="tel:+221777781562" class="link_number m-1 m-lg-2">
+                            <button class="br-06 bg-primary py-2  bx-s-10 text-white width-6 fs-07 out-n border-0">
+                                <i class="fas fa-phone"></i>
+                                Appels
+                            </button>
+                        </a>
+                        <a href="sms:+221777781562?body=domain.com/<%=genre%>/<%=categorie%>/<%=titre_numero%> %0a%0a Salut ! je suis intéressé(e) par votre vente ?" class="link_number m-1 m-lg-2">
+                            <button class="br-06 bg-secondary py-2 bx-s-10 text-white width-6 fs-07 out-n border-0">
+                                <i class="fas fa-envelope"></i>
+                                Messagerie
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- delete button -->
+        <!-- <a href="/espace-admin/produits/disable-produit-<%=product.numero%>">
+            <button class="bg-orangered br-06 op-04 hover-op-1 py-1 px-3 fs-07 ml-2 ml-lg-4 text-white mt-5">
+                <i class="fas fa-trash-alt"></i>
+                supprimer ce produit
+            </button>
+        </a> -->
+        
+
+        <!-- share -->
+        <div class="column-center" style="margin-top: 3rem;">
+            <h5 class="text-shadow-1 mb-3">Partagez cet article avec vos ami(e)s :</h5>
+            <div class="horizontal-center">
+                <a href="https://m.facebook.com/sharer.php?u=domain.com/<%=genre%>/<%=categorie%>/<%=titre_numero%>&text=<%=product.description%>" class="mx-2">
+                    <img src="/logo/f.jpg" alt="" class="width-3 height-3 bx-s-10 br-06">
+                </a>
+                <a href="https://wa.me/?text=domain.com/<%=genre%>/<%=categorie%>/<%=titre_numero%> %0a%0a*<%=product.titre%>*" class="mx-2">
+                    <img src="/logo/w.jpg" alt="" class="width-3 height-3 bx-s-10 br-06">
+                </a>
+                <a href="https://twitter.com:/intent/tweet?text=<%=product.titre%>&url=domain.com/<%=genre%>/<%=categorie%>/<%=titre_numero%>" class="mx-2">
+                    <img src="/logo/t.jpg" alt="" class="width-3 height-3 bx-s-10 br-06">
+                </a>
+                <a href="" class="mx-2 d-none">
+                    <img src="/logo/tt.jpg" alt="" class="width-3 height-3 bx-s-10 br-06">
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- art. similaires -->
+    <%if(products_sim.length>=1){%>
+        <section class="mb-10">
+            <div class="mb-3">
+                <h2 class="text-shadow-1 text-muted ml-4 ml-lg-5 op-05">Articles similaires</h2>
+            </div>
+            <div class="center">
+                <%products_sim.forEach((product) =>{%>
+                    <a href="/<%=product.genre%>/<%=product.categorie%>/<%=product.titre_concat%>-<%=product.numero%>" class="p_si m-2 m-lg-3 bx-s-6 width-14 pb-4 br-06 t-d-n">
+                        <img src="<%=product.chemin%>" class="img_si mb-2 rounded w-100 height-12" alt="<%=product.titre%>">
+                        <h5 class="text-center f-w-b fs-085 cl-purple text-shadow-1">
+                            <%if(product.prix){%>
+                                <%=product.prix_format%> F CFA
+                            <%}%>
+                        </h5>
+                    </a>
+                <%})%>
+            </div>
+        </section>
+    <%}%>
+    
+    <!-- footer -->
+    <footer>
+        <%- include("./footer.html") %>
+    </footer>
+
+</body>
+</html>

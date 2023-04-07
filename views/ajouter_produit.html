@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/logo/l1.jpg" type="image/jpg">
+    <title>Ajouter un produit</title>
+
+    <!-- flash message -->
+    <script defer src="/my-js/listenFlashMessage.js"></script>
+
+    <!-- my-js -->
+    <script defer src="/my-js/ajouter_produit.js"></script>
+
+    <!-- boostrap css -->
+    <link rel="stylesheet" href="/bootstrap-css-4.5.0/bootstrap.min.css">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="/fontawesome_5.15.4/css/all.css">
+
+    <!-- my-templates-css -->
+    <link rel="stylesheet" href="/my-templates-css/globalCss.css">
+</head>
+<body class="bg-light">
+
+    <!-- nav admin -->
+    <header class="mb-6">
+        <%- include("./navbar_admin.html")%>
+    </header>
+
+    <!-- form -->
+    <section class="center mb-10">
+        <div class="bx-s-10 br-06 bg-white width-48 py-5 px-3 m-w-90">
+
+             <!-- message alert -->
+             <div class="center">
+                <div class="mb-3 alert alert-success fs-09 px-3 d-none" message="<%-locals.message%>" id="message_alert">
+                    
+                </div>
+            </div>
+
+            <div class="column-center mb-3">
+                <i class="fas fa-tshirt fs-26 mb-1"></i>
+                <h6 class="text-shadow-1 fs-095">Remplir les details de vente</h6>
+            </div>
+
+            <form action="/espace-admin/ajouter-produit" method="post" enctype="multipart/form-data">
+                <div class="column-center mb-4">
+                    <button type="button" class="rounded bx-s-6 bg-success width-3 height-3 text-white mb-2" id="button_img">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                    <p class="text-muted fs-09" id="text_imgs_select">Cliquez sur ce bouton choisir les photos</p>
+                    <input type="file" name="files" id="input_file" class="d-none" multiple required>
+                </div>
+                <div>
+                    <div class="wrap-center">
+                        <div class="m-2">
+                            <div class="text-muted fs-075 ml-3">categorie personne <span class="text-danger f-w-b">*</span></div>
+                            <select name="genre" id="cp" class="height-input form-control fs-075 width-20 rounded p-1 mb-2" required>
+                                <option value="">type personne</option>
+                                <option value="homme" class="text-center">homme</option>
+                                <option value="femme" class="text-center">femme</option>
+                                <option value="homme-femme" class="text-center">homme & femme</option>
+                                <option value="enfant-bebe" class="text-center">enfant & bebe</option>
+                            </select>
+                            
+                            <div class="text-muted fs-075 ml-3">categorie vente <span class="text-danger f-w-b">*</span></div>
+                            <select name="categorie" id="cv" class="height-input form-control width-20 fs-075 rounded p-1 mb-2" required>
+                                <option value="">categorie vente</option>
+                                <option value="vetements" class="text-center">vêtements</option>
+                                <option value="chaussures" class="text-center">chaussures</option>
+                                <option value="accessoires" class="text-center">accessoires</option>
+                            </select>
+        
+                            <div class="mb-2" id="container_type">
+                            </div>
+                        </div>
+    
+                        <div class="m-2">
+                            <div class="text-muted fs-075 ml-3">titre <span class="text-danger f-w-b">*</span></div>
+                            <input type="text" name="titre" maxlength="60" class="width-20 height-input form-control fs-075 p-1 mb-2" required>
+        
+                            <div class="text-muted fs-075 ml-3">prix</div>
+                            <input type="number" name="prix" min="0" class="width-20 height-input form-control fs-075 p-1 mb-2">
+                        </div>    
+                    </div>
+
+                    <div class="text-muted fs-08 mt-3 ml-3">Description<span class="text-danger f-w-b">*</span></div>
+                    <textarea name="description" class="form-control out-n fs-09 ls-05 p-2 w-100 mb-3" placeholder="donner plus d'informations sur votre vente" cols="30" rows="10" required></textarea>
+
+                    <div class="center mt-5">
+                        <button type="submit" class="fs-095 cl-white br-07 bg-primary py-2 px-3 width-11 bx-s-10">
+                            <i class="fas fa-paper-plane"></i>
+                            Soumettre
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- footer -->
+    <footer>
+        <%- include("./footer.html") %>
+    </footer>
+
+
+    <!-- complements inputs -->
+    <section class="d-none">
+        <select name="type" id="tvh" class="height-input form-control width-20 fs-075 rounded p-1 mb-2 mt-3" required>
+            <option value="" class="text-center">type vêtements</option>
+            <option value="debardeur" class="text-center">debardeur</option>
+            <option value="maillots-culotte" class="text-center">maillots/culotte</option>
+            <option value="blouson-jogging" class="text-center">blouson/jogging</option>
+            <option value="pantalons-jeans-kaki" class="text-center">pantalons/jeans/kaki</option>
+            <option value="t-shirts-polos-lacoste" class="text-center">t-shirts/polos/lacoste</option>
+            <option value="pulls-gilets-manteaux" class="text-center">pulls/gilets/manteaux</option>
+            <option value="caleçons-slips" class="text-center">caleçons/slips</option>
+            <option value="chemise-veste-costume" class="text-center">chemise/veste/costume</option>
+            <option value="jallaba-sabador-tunique-tissus-bazin" class="text-center">jallaba/sabador/tunique/tissus/bazin</option>
+            <option value="autres" class="text-center">autres</option>
+        </select>
+        <select name="type" id="tch" class="height-input form-control width-20 fs-075 rounded p-1 mb-2 mt-3" required>
+            <option value="" class="text-center">type chaussures</option>
+            <option value="basket-sport" class="text-center">basket/sport</option>
+            <option value="bottes-bottines" class="text-center">bottes/bottines</option>
+            <option value="traditionnel-africain" class="text-center">traditionnel africain</option>
+            <option value="mocassins-richelieux-derbies" class="text-center">mocassins/richelieux/derbies</option>
+            <option value="sandales-nu-pieds-pantoufles-espadrilles" class="text-center">sandales/nu-pieds/pantoufles/espadrilles</option>
+            <option value="autres" class="text-center">autres</option>
+        </select>
+        <select name="type" id="tvf" class="height-input form-control width-20 fs-075 rounded p-1 mb-2 mt-3" required>
+            <option value="" class="text-center">type vêtements</option>
+            <option value="voile" class="text-center">voile</option>
+            <option value="debardeur" class="text-center">debardeur</option>
+            <option value="jupe-robe" class="text-center">jupe/robe</option>
+            <option value="maillots-culotte" class="text-center">maillots/culotte</option>
+            <option value="blouson-jogging" class="text-center">blouson/jogging</option>
+            <option value="pantalons-jeans" class="text-center">pantalons/jeans</option>
+            <option value="t-shirts-polos-lacoste" class="text-center">t-shirts/polos/lacoste</option>
+            <option value="pulls-gilets-manteaux" class="text-center">pulls/gilets/manteaux</option>
+            <option value="caleçons-slips-bah-soutien gorge" class="text-center">caleçons/slips/bah/soutien gorge</option>
+            <option value="chemise-veste-costume" class="text-center">chemise/veste/costume</option>
+            <option value="abaya-jallaba-tissus-bazin" class="text-center">abaya/jallaba/tissus/bazin</option>
+            <option value="autres" class="text-center">autres</option>
+        </select>
+        <select name="type" id="tcf" class="height-input form-control width-20 fs-075 rounded p-1 mb-2 mt-3" required>
+            <option value="" class="text-center">type chaussures</option>
+            <option value="basket-sport" class="text-center">basket/sport</option>
+            <option value="bottes-bottines" class="text-center">bottes/bottines</option>
+            <option value="traditionnel-africain" class="text-center">traditionnel africain</option>
+            <option value="coquettes-talons-escarpins" class="text-center">coquettes/talons/escarpins</option>
+            <option value="mocassins-richelieux-derbies" class="text-center">mocassins/richelieux/derbies</option>
+            <option value="sandales-nu-pieds-pantoufles-espadrilles" class="text-center">sandales/nu-pieds/pantoufles/espadrilles</option>
+            <option value="autres" class="text-center">autres</option>
+        </select>
+        <select name="type" id="ta" class="height-input form-control width-20 fs-075 rounded p-1 mb-2 mt-3">
+            <option value="" class="text-center">type d'accessoires</option>
+            <option value="valises" class="text-center">valises</option>
+            <option value="cheveux" class="text-center">cheveux</option>
+            <option value="parfums" class="text-center">parfums</option>
+            <option value="ceintures" class="text-center">ceintures</option>
+            <option value="sacs à  dos" class="text-center">sacs à  dos</option>
+            <option value="sacs à  main" class="text-center">sacs à  main</option>
+            <option value="jouets-enfants" class="text-center">jouets enfants</option>
+            <option value="sacs ordinateur" class="text-center">sacs ordinateur</option>
+            <option value="lunettes-montres" class="text-center">lunettes/montres</option>
+            <option value="bracelets-chaines-bijoux" class="text-center">bracelets/chaines/bijoux</option>
+            <option value="portefeuilles-porte monnaie" class="text-center">portefeuilles/porte monnaie</option>
+            <option value="pochettes-sacoches-trousses" class="text-center">pochettes/sacoches/trousses</option>
+            <option value="autres" class="text-center">autres</option>
+        </select>
+        <select name="sous_categorie" id="ss" class="height-input form-control width-20 fs-075 rounded p-1 mb-2 mt-3">
+            <option value="" class="text-center">sexe</option>
+            <option value="garcon" class="text-center">garçon</option>
+            <option value="fille" class="text-center">fille</option>
+        </select>
+
+    </section>
+</body>
+</html>

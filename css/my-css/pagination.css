@@ -1,0 +1,6 @@
+.page-item{
+    z-index: 0 !important;
+}
+.page-link{
+    font-size: 1rem !important; padding: 0.2rem 0.8rem !important;
+}

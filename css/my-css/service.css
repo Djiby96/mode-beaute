@@ -1,0 +1,12 @@
+.service_icon{
+    font-size: 1.5rem;
+}
+
+@keyframes scale{
+    0% {transform: scale(1);}
+    50% {transform: scale(1.2);}
+    100% {transform: scale(1);}
+}
+#whatsapp_link{
+    animation-name: scale; animation-duration: 4s; animation-iteration-count: infinite;
+}

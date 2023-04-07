@@ -1,0 +1,14 @@
+#logo_navbar{
+    width: 4rem; height: 3.5rem;
+}
+
+/* menu */
+.show_container_menu{
+    visibility: visible !important;
+}
+.menu{
+    transform: translateX(-20rem);
+}
+.show_menu{
+    transform: translateX(0) !important; visibility: visible !important;
+}

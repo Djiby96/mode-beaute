@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/logo/logo_navbar.jpg" type="image/svg">
+    <title>Espace de connexion</title>
+
+    <!-- boostrap css -->
+    <link rel="stylesheet" href="/bootstrap-css-4.5.0/bootstrap.min.css">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="/fontawesome_5.15.4/css/all.css">
+
+    <!-- my-templates-css -->
+    <link rel="stylesheet" href="/my-templates-css/globalCss.css">
+
+    <!-- my-css -->
+    <link rel="stylesheet" href="/my-css/connexion_admin.css">
+
+    <!-- boostrap js -->
+    <script defer src="/boostrap-js-4.5.0/jquery-3.4.1.min.js"></script>
+    <script defer src="/boostrap-js-4.5.0/bootstrap.min.js"></script>
+</head>
+<body class="bg-light">
+    
+    <!-- navigation -->
+    <header class="mb-10">
+        <%- include('./navigation.html') %>
+    </header>
+
+    <!-- form -->
+    <section class="horizontal-center min-h-100p mb-10">
+        <form action="/connexion-admin" method="post" class="column-center bx-s-10 bg-white pt-3 px-4 pb-5 br-07 m-w-95">
+            <i class="fas fa-user-shield" style="font-size: 4rem;"></i>
+            <div class="mb-3 mt-4">
+                <div class="fs-095 text-muted">Mot de passe</div>
+                <input type="password" name="mdp" placeholder="Entrez le mot de passe" class="form-control out-n fs-095 ls-05 p-1 width-25 m-w-85" style="height: 2.5rem;" maxlength="8">
+            </div>
+            <button type="submit" value="Se connecter" class="fs-095 cl-white br-07 bg-primary py-2 px-3 width-11">
+                <i class="fas fa-paper-plane"></i>
+                Se connecter
+            </button>
+        </form>
+    </section>
+
+    <!-- footer -->
+    <footer>
+        <%- include('./footer.html') %>
+    </footer>
+</body>
+</html>

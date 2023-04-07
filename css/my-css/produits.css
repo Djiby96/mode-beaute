@@ -1,0 +1,20 @@
+*{
+    margin: 0;padding: 0;box-sizing: border-box;
+}
+
+/*  <!-- section title --> */
+#title_page{
+    font-size: 1.3rem; clip-path: polygon(93% 0%, 100% 50%, 93% 100%, 0% 100%, 7% 50%, 0% 0%);
+}
+
+/* <!-- produit list --> */
+.article_product{
+    width: 14rem; height: 17rem;
+}
+.article_product:hover .container_remove_icon{
+    visibility: visible !important;
+}
+
+.img_product{
+    height: 10rem;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- my-css -->
+    <link rel="stylesheet" href="/my-css/navbar_admin.css">
+    <link rel="stylesheet" href="/my-templates-css/screen_position.css">
+
+    <!-- my-js -->
+    <script defer src="/my-js/navbar_admin.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light justify-content-between bg-white w-100 bx-s-10 pr-lg-5 z-i-4">
+        <a class="navbar-brand" href="/">
+            <img src="/logo/l1.jpg"  id="logo_navbar" alt="">
+            <span class="f-w-b fs-08 ">Mode & Beaute</span>
+        </a>
+        <button id="button_navbar" class="bx-s-10 rounded py-1 px-2 bg-gainsboro" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+    <!-- menu -->
+    <section class="container_menu position-fixed tblr z-i-5 bg-black-rgba-04 v-hidden min-h-100vh min-w-100vw">
+        <div class="menu py-4 rounded width-20 m-w-70 min-h-100p h-100vh bg-light transition-02 overflow-y-auto">
+            <div>
+                <span class="my-2 ml-4 cs-p" id="exit_menu">
+                    <i class="fas fa-window-close" style="font-size: 1.3rem;"></i>
+                </span>
+            </div>
+            <div class="column-center f-w-b fs-08">
+                <img src="/logo/l1.jpg" alt="" class="width-5 height-5 bx-s-2 mb-2 rounded">
+                Mode & Beaute
+            </div>
+            <hr>
+            <div class="column ml-3 mt-4">
+                <a href="/espace-admin/produits" class="mb-3 fs-085 text-muted t-d-u">
+                    <i class="fas fa-cart-arrow-down"></i>
+                    produits
+                </a>
+                <a href="/espace-admin/ajouter-produit" class="mb-3 fs-085 text-muted t-d-u">
+                    <i class="fas fa-plus"></i>
+                    ajouter un produit
+                </a>
+                <a href="/espace-admin/anciens-produits" class="mb-2 fs-085 text-muted t-d-u d-none">
+                    <i class="fas fa-clock"></i>
+                    anciens produits
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
