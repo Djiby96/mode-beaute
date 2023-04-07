@@ -31,8 +31,8 @@ app.use(express.static(path.join(__dirname , "js")))
 app.use(express.static(__dirname)) 
 
 // Init app port
-var port = process.env.PORT || 56374;
-app.listen(port)
+var port = process.env.PORT || 55555;
+app.listen(port, () => console.log(`APP MODE-BEAUTE RUNNING ON PORT ${port}`))
 
 // Export backend-modules for app
 var Accueil = require("./backend-modules/accueil.js"),
